@@ -308,11 +308,14 @@ function generateTable(event, forecast) {
     </table>`;
 
   var flag; //flag to also fetch the next block of information in addition to the current day
-  dom.table.children[0].children[1].innerHTML = forecast.list.reduce((acc, el) => {
-    acc += generateT(el);
-    flag = el.dt_txt.substring(8, 10) === event.classList[2];
-    return acc;
-  }, "");
+  dom.table.children[0].children[1].innerHTML = = forecast.list.reduce((acc, el) => {
+    if (el.dt_txt.substring(8, 10) === event.classList[2]) {
+      acc += generateT(el);
+      flag = true;
+    } else if (flag) {
+      acc += generateT(el);
+      flag = false;
+    }
 
 
   function generateT(el) {
