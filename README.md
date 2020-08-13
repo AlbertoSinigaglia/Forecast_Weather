@@ -1,2 +1,2 @@
-# Miky-Weather
-A simple website that make you know the current weather in the city typed into the textbox. All the data are kept by an online free weather web API named open weather.
+# Miky-ForecastWeather
+A website that basing on your current position, or on the city name entered, is able to find the weather forecast for the current and next days. Then you can choose from the days displayed and get the hourly weather foreacast of the selected day.
