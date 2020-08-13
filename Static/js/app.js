@@ -316,6 +316,8 @@ function generateTable(event, forecast) {
       acc += generateT(el);
       flag = false;
     }
+     return acc;
+  }, "");
 
 
   function generateT(el) {
