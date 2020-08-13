@@ -35,48 +35,50 @@
 		<script src="https://cdn.jsdelivr.net/npm/bootstrap-select@1.13.14/dist/js/bootstrap-select.min.js"></script>
 	</head>
     <body>
-		<div class="container" >
-			<div class="row">
-				<div class="col-12">
-					<div class="header col-12 border-bottom-0 p-4">
-						<div class="row">
-							<div class="pt-2 m-0 col-12 text-center pb-3">
-								<caption><h2 class="h1" style="font-size: 3em;">Previsioni Meteo</h2></caption>
-							</div>
-							<div class="city col-12">
-								<div class="form-group mb-3">
-									<span class="h5 w-100">Citt&aacute;</span>
-									<input type="text" class="form-control mr-0 pr-0 w-100" style="max-width: unset;" id="city" placeholder="Inserisci città">
+		<div class="container p-5" >
+			<div class="row w-100 h-100 p-0 m-0">
+				<div class="row w-100 m-0 p-0" style="max-width:unset;">
+					<div class="col-12">
+						<div class="header col-12 border-bottom-0 pl-4 pr-4 pb-4 pt-0">
+							<div class="row">
+								<div class="pt-2 m-0 col-12 text-center pb-3">
+									<caption><h2 class="h1" style="font-size: 3em;">Previsioni Meteo</h2></caption>
+								</div>
+								<div class="city col-12">
+									<div class="form-group mb-3">
+										<span class="h5 w-100">Citt&aacute;</span>
+										<input type="text" class="form-control mr-0 pr-0 w-100" style="max-width: unset;" id="city" placeholder="Inserisci città">
+									</div>
+								</div>
+								<div class="city col-12">
+									<div class="input-group mb-3 ">
+										<span class="h5 w-100">Lingua</span>
+
+										<select class="selectpicker" id="lang">
+										</select>
+									</div>
 								</div>
 							</div>
-							<div class="city col-12">
-								<div class="input-group mb-3 ">
-									<span class="h5 w-100">Lingua</span>
-
-									<select class="selectpicker" id="lang">
-									</select>
+							<div class="row">
+								<div class="col-12">
+									<button class="btn btn-primary w-100" id='submit'>Visualizza</button>
 								</div>
 							</div>
 						</div>
-						<div class="row">
-							<div class="col-12">
-								<button class="btn btn-primary w-100" id='submit'>Visualizza</button>
+
+						<!-- HORIZONTAL LIST OF THE DAILY WEATHER FORECAST -->
+						<div id="days">	
+							
+						</div>
+
+						<!-- TABLE FOR DISPLAYING THE HOURLY FORECAST -->
+						<div class="table-responsive">
+							<div id="table">
+							
 							</div>
 						</div>
-					</div>
 
-					<!-- HORIZONTAL LIST OF THE DAILY WEATHER FORECAST -->
-					<div id="days">	
-						
 					</div>
-
-					<!-- TABLE FOR DISPLAYING THE HOURLY FORECAST -->
-					<div class="table-responsive">
-						<div id="table">
-						
-						</div>
-					</div>
-
 				</div>
 			</div>
 		</div>

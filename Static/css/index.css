@@ -18,7 +18,7 @@ body {
 .container {
   max-width: 1000px;
   height: 90vh;
-  overflow-x: scroll;
+  padding:20px;
   display: flex;
   justify-content: center;
   padding-top: 60px;
@@ -29,11 +29,15 @@ body {
     0 16px 16px rgba(0, 0, 0, 0.03), 0 32px 32px rgba(0, 0, 0, 0.03);
 }
 .container > .row {
+  height: 100%;
+  overflow-x: scroll;
+}
+.container > .row >.row {
   max-width: 1000px;
   border-radius: 10px;
   position: relative;
 }
-.container > .row > * > * {
+.container > .row > .row > * > * {
   transition: 1s all linear;
   border-width: 0px;
 }

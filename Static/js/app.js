@@ -35,10 +35,7 @@ class WeatherAPI {
     };
     // This is the key associtated to the response, stored in the cache map
     let key = {
-      ...request,
-      lang: this.lang,
-      APPID: this.id,
-      units: this.unit,
+      ...req,
       type: type,
     };
     // Checking if a request equal to the current one was made before. In positive case we withdraw the value from the cache instead of making another request
@@ -46,12 +43,7 @@ class WeatherAPI {
       return Promise.resolve(this.cache.get(JSON.stringify(key)));
 
     // We create the url root basing on "type"
-    let url;
-    if (type === "one") {
-      url = new URL(WeatherAPI.apiUrlOneCall);
-    } else if (type === "forecast") {
-      url = new URL(WeatherAPI.apiUrl);
-    }
+    let url = type === "one" ? new URL(WeatherAPI.apiUrlOneCall) : new URL(WeatherAPI.apiUrl);
 
     // We make the actual request with "fetch", choosing between "get" and "post"
     let prom = null;
@@ -60,11 +52,15 @@ class WeatherAPI {
         // We create the complete url basing on "req"
         url.search = new URLSearchParams(req).toString();
         prom = fetch(url);
+        break;
       case "post":
         prom = fetch(url, {
           method: "POST",
           body: req,
         });
+        break;
+      default:
+        throw new Error("Method not supported, choose between GET and POST")
     }
     return prom.then((resp) => {
       // Checking if the name entered is correct, else returning the response
@@ -126,7 +122,7 @@ class WeatherAPI {
 }
 
 const dom = {};
-var wapi = new WeatherAPI("5fa9a800de7bb9bcd2867f52a5d3d754");
+const wapi = new WeatherAPI("5fa9a800de7bb9bcd2867f52a5d3d754");
 $(() => {
   // List of all the dom element usefull in the html file
   dom.lang = document.getElementById("lang");
@@ -206,10 +202,7 @@ $(() => {
           })
           .then(() => {
             // Displaying the hourly forecast getting the data from the cache map, where the data was previously stored in
-            var req = `{"q":"${dom.city.value.toLowerCase()}","lang":"${
-              wapi.lang
-            }","APPID":"${wapi.id}","units":"${wapi.unit}","type":"forecast"}`;
-            wapi.cache.get(req).then((forecast) => {
+            wapi.byCity(dom.city.value.toLowerCase(), "forecast").then((forecast) => {
               generateTable(dom.days.children[0], forecast);
               prepareDays(forecast);
             });
@@ -234,7 +227,6 @@ function prepareDays(forecast) {
     el.addEventListener("click", (event) => {
       event = liParent(event);
       generateTable(event, forecast);
-      console.log("Ciaoo");
     });
   }, "");
 }
@@ -287,7 +279,7 @@ function generateStructure(data) {
 
 // Method for getting the first "li" element, parent of the element passed as paramenter
 function liParent(element) {
-  return [...element.path].reduce((acc, el) => {
+  return element.path.reduce((acc, el) => {
     if (el.nodeName === "LI") {
       acc = el;
     }
@@ -316,7 +308,7 @@ function generateTable(event, forecast) {
     </table>`;
 
   var flag; //flag to also fetch the next block of information in addition to the current day
-  forecast = forecast.list.reduce((acc, el) => {
+  dom.table.children[0].children[1].innerHTML = = forecast.list.reduce((acc, el) => {
     if (el.dt_txt.substring(8, 10) === event.classList[2]) {
       acc += generateT(el);
       flag = true;
@@ -324,17 +316,11 @@ function generateTable(event, forecast) {
       acc += generateT(el);
       flag = false;
     }
-    return acc;
-  }, "");
 
-  dom.table.children[0].children[1].innerHTML = forecast;
 
   function generateT(el) {
     return `<tr style="display: flex, justify-content: center, align-items:center">
-            <th scope="row"><span class="badge badge-primary badge-pill">${el.dt_txt.substring(
-              11,
-              16
-            )}</span></th>
+            <th scope="row"><span class="badge badge-primary badge-pill">${el.dt_txt.substring(11, 16)}</span></th>
             <td>${el.weather[0].description}</td>
             <td><img style="display: inline-block; width: 60px;" src="https://openweathermap.org/img/wn/${
               el.weather[0].icon
@@ -350,8 +336,8 @@ function generateTable(event, forecast) {
 
 // Function to easily handle the date in the UNIX format
 function timeConverter(UNIX_timestamp) {
-  var a = new Date(UNIX_timestamp * 1000);
-  var months = [
+  const a = new Date(UNIX_timestamp * 1000);
+  const months = [
     "Gennaio",
     "Febbraio",
     "Marzo",
@@ -365,7 +351,7 @@ function timeConverter(UNIX_timestamp) {
     "Novembre",
     "Dicembre",
   ];
-  var days = [
+  const days = [
     "Domenica",
     "Lunedì",
     "Martedì",
@@ -374,14 +360,14 @@ function timeConverter(UNIX_timestamp) {
     "Venerdì",
     "Sabato",
   ];
-  var year = a.getFullYear();
-  var month = months[a.getMonth()];
-  var date = a.getDate();
-  var hour = a.getHours();
-  var min = a.getMinutes();
-  var sec = a.getSeconds();
-  var day = a.getDay();
-  var time = days[day];
+  const year = a.getFullYear();
+  const month = months[a.getMonth()];
+  const date = a.getDate();
+  const hour = a.getHours();
+  const min = a.getMinutes();
+  const sec = a.getSeconds();
+  const day = a.getDay();
+  const time = days[day];
   return {
     year: year,
     month: months[month],
@@ -396,7 +382,7 @@ function timeConverter(UNIX_timestamp) {
 
 // Changing the background basing on the weather
 function generateBackground(val) {
-  var background = {
+  const background = {
     "2XX": "#37444e",
     "3XX": "#487ca5",
     "5XX": "#a2acb8",
