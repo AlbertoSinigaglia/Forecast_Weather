@@ -306,16 +306,16 @@ function generateTable(event, forecast) {
             
         </tbody>
     </table>`;
-
-  var flag; //flag to also fetch the next block of information in addition to the current day
+  var today = timeConverter(forecast.list[0].dt).date - 1;
+  var flag = true;
   dom.table.children[0].children[1].innerHTML =  forecast.list.reduce((acc, el) => {
     if (el.dt_txt.substring(8, 10) === event.classList[2]) {
       acc += generateT(el);
-      flag = true;
-    } else if (flag) {
+    } else if (event.classList[2] == today && flag === true) {
       acc += generateT(el);
       flag = false;
     }
+    console.log(event.classList[2]);
      return acc;
   }, "");
 
@@ -378,7 +378,7 @@ function timeConverter(UNIX_timestamp) {
     min: min,
     sec: sec,
     day: days[day],
-    time: time,
+    time: time
   };
 }
 
