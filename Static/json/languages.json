@@ -1,0 +1,182 @@
+{
+  "Afrikaans": {
+    "abbreviation": "af",
+    "flag": "af"
+  },
+  "Albanian": {
+    "abbreviation": "al",
+    "flag": "al"
+  },
+  "Arabic": {
+    "abbreviation": "ar",
+    "flag": "ar"
+  },
+  "Azerbaijani": {
+    "abbreviation": "az",
+    "flag": "az"
+  },
+  "Bulgarian": {
+    "abbreviation": "bg",
+    "flag": "bg"
+  },
+  "Catalan": {
+    "abbreviation": "ca",
+    "flag": "ca"
+  },
+  "Czech": {
+    "abbreviation": "cz",
+    "flag": "cz"
+  },
+  "Danish": {
+    "abbreviation": "da",
+    "flag": "dk"
+  },
+  "German": {
+    "abbreviation": "de",
+    "flag": "de"
+  },
+  "Greek": {
+    "abbreviation": "el",
+    "flag": "gr"
+  },
+  "English": {
+    "abbreviation": "en",
+    "flag": "gb"
+  },
+  "Basque": {
+    "abbreviation": "eu",
+    "flag": "eu"
+  },
+  "Persian (Farsi)": {
+    "abbreviation": "fa",
+    "flag": "ir"
+  },
+  "Finnish": {
+    "abbreviation": "fi",
+    "flag": "fi"
+  },
+  "French": {
+    "abbreviation": "fr",
+    "flag": "fr"
+  },
+  "Galician": {
+    "abbreviation": "gl",
+    "flag": "gl"
+  },
+  "Hebrew": {
+    "abbreviation": "he",
+    "flag": "il"
+  },
+  "Hindi": {
+    "abbreviation": "hi",
+    "flag": "in"
+  },
+  "Croatian": {
+    "abbreviation": "hr",
+    "flag": "hr"
+  },
+  "Hungarian": {
+    "abbreviation": "hu",
+    "flag": "hu"
+  },
+  "Indonesian": {
+    "abbreviation": "id",
+    "flag": "id"
+  },
+  "Italian": {
+    "abbreviation": "it",
+    "flag": "it"
+  },
+  "Japanese": {
+    "abbreviation": "ja",
+    "flag": "jp"
+  },
+  "Korean": {
+    "abbreviation": "kr",
+    "flag": "kr"
+  },
+  "Latvian": {
+    "abbreviation": "la",
+    "flag": "la"
+  },
+  "Lithuanian": {
+    "abbreviation": "lt",
+    "flag": "lt"
+  },
+  "Macedonian": {
+    "abbreviation": "mk",
+    "flag": "mk"
+  },
+  "Norwegian": {
+    "abbreviation": "no",
+    "flag": "no"
+  },
+  "Dutch": {
+    "abbreviation": "nl",
+    "flag": "nl"
+  },
+  "Polish": {
+    "abbreviation": "pl",
+    "flag": "pl"
+  },
+  "Portuguese": {
+    "abbreviation": "pt",
+    "flag": "pt"
+  },
+  "Brasil": {
+    "abbreviation": "pt_br",
+    "flag": "br"
+  },
+  "Romanian": {
+    "abbreviation": "ro",
+    "flag": "ro"
+  },
+  "Russian": {
+    "abbreviation": "ru",
+    "flag": "ru"
+  },
+  "Swedish": {
+    "abbreviation": "sv,",
+    "flag": "se"
+  },
+  "Slovak": {
+    "abbreviation": "sk",
+    "flag": "sk"
+  },
+  "Slovenian": {
+    "abbreviation": "sl",
+    "flag": "sl"
+  },
+  "Spanish": {
+    "abbreviation": "sp",
+    "flag": "es"
+  },
+  "Serbian": {
+    "abbreviation": "sr",
+    "flag": "se"
+  },
+  "Thai": {
+    "abbreviation": "th",
+    "flag": "th"
+  },
+  "Turkish": {
+    "abbreviation": "tr",
+    "flag": "tr"
+  },
+  "Ukrainian": {
+    "abbreviation": "ua",
+    "flag": "ua"
+  },
+  "Vietnamese": {
+    "abbreviation": "vi",
+    "flag": "vi"
+  },
+  "Chinese Simplified": {
+    "abbreviation": "zh_cn",
+    "flag": "cn"
+  },
+  "Chinese Traditional": {
+    "abbreviation": "zh_tw",
+    "flag": "cn"
+  }
+}
