@@ -52,11 +52,13 @@ class WeatherAPI {
         // We create the complete url basing on "req"
         url.search = new URLSearchParams(req).toString();
         prom = fetch(url);
+        break;
       case "post":
         prom = fetch(url, {
           method: "POST",
           body: req,
         });
+        break;
       default:
         throw new Error("Method not supported, choose between GET and POST")
     }
