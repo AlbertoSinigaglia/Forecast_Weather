@@ -118,6 +118,15 @@ button.btn.dropdown-toggle.btn-light {
   .container {
     padding-top: 30px; 
   }
+
+  body {
+    margin: 0;
+    padding: 0;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 95vh;
+  }
 }
 
 .clearfix {
