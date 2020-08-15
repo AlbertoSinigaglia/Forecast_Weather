@@ -77,6 +77,7 @@ button.btn.dropdown-toggle.btn-light {
   margin: 1.5em 0.2em 1.5em 0.2em;
   padding-left: 0.6em;
   padding-right: 0.6em;
+  border-radius: .25rem;
 }
 
 #days h6 {
@@ -107,12 +108,18 @@ button.btn.dropdown-toggle.btn-light {
   color: red;
   font-size: 90%;
 }
-
-.liHover {
+/**
+ * Se proprio vuoi quel effetto "hover" sui giorni:
+ */
+/*
+#days > li{
   transition: all 1s linear;
+}
+#days > li:hover {
   background-color: rgb(255, 254, 188);
   box-shadow: 5px 10px 30px rgb(163, 195, 255);
 }
+*/
 
 @media only screen and (max-width: 780px) {
   .container {
@@ -131,4 +138,14 @@ button.btn.dropdown-toggle.btn-light {
 
 .clearfix {
   clear: both;
+}
+
+tr > td, tr > th{
+  vertical-align: middle !important;
+}
+
+td > div{
+  display: flex;
+  justify-content: center;
+  align-items: center;
 }

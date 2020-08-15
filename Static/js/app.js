@@ -172,7 +172,7 @@ $(() => {
               // Displaying the hourly forecast
               dom.city.value = forecast.city.name.trim();
               generateTable(dom.days.children[0], forecast);
-              prepareDays(forecast);
+              //prepareDays(forecast);
             });
         });
     },
@@ -204,7 +204,7 @@ $(() => {
             // Displaying the hourly forecast getting the data from the cache map, where the data was previously stored in
             wapi.byCity(dom.city.value.toLowerCase(), "forecast").then((forecast) => {
               generateTable(dom.days.children[0], forecast);
-              prepareDays(forecast);
+              //prepareDays(forecast);
             });
           });
       })
@@ -216,20 +216,20 @@ $(() => {
 });
 
 // add events listeners "click" and "mouseover" to all the days form
-function prepareDays(forecast) {
-  [...dom.days.children].reduce((acc, el) => {
-    el.addEventListener("mouseover", () => {
-      el.classList.add("liHover", 1000);
-    });
-    el.addEventListener("mouseout", () => {
-      el.classList.remove("liHover");
-    });
-    el.addEventListener("click", (event) => {
-      event = liParent(event);
-      generateTable(event, forecast);
-    });
-  }, "");
-}
+// function prepareDays(forecast) {
+//   [...dom.days.children].reduce((acc, el) => {
+//     el.addEventListener("mouseover", () => {
+//       el.classList.add("liHover", 1000);
+//     });
+//     el.addEventListener("mouseout", () => {
+//       el.classList.remove("liHover");
+//     });
+//     el.addEventListener("click", (event) => {
+//       event = liParent(event);
+//       generateTable(event, forecast);
+//     });
+//   }, "");
+// }
 
 // METHODS FOR IMPLEMENTING THE MULTILINGUAL SELECTOR
 async function languagesList() {
@@ -259,9 +259,8 @@ function generateStructure(data) {
   dom.days.innerHTML = Object.entries(data.daily).reduce((acc, el, i) => {
     if (i < 5) {
       el = el[1];
-      return (acc += `<li class="list-group-item list ${
-        timeConverter(el.dt).date
-      }">
+      return (acc += `
+            <li class="list-group-item list ${timeConverter(el.dt).date}">
                 <h6>${timeConverter(el.dt).day}</h6>
                 <img id = "icon" src="https://openweathermap.org/img/wn/${
                   el.weather[0].icon
