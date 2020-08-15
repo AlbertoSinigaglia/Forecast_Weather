@@ -73,7 +73,14 @@ button.btn.dropdown-toggle.btn-light {
   text-align: center;
 }
 
+#days ul {
+  white-space:nowrap;
+  max-width: 100%;
+  overflow-x: scroll;
+  padding:0px;
+}
 #days li {
+  display:inline-block;
   margin: 1.5em 0.2em 1.5em 0.2em;
   padding-left: 0.6em;
   padding-right: 0.6em;
@@ -122,6 +129,15 @@ button.btn.dropdown-toggle.btn-light {
 */
 
 @media only screen and (max-width: 780px) {
+  body{
+    padding:10px !important;
+  }
+  body > .container.p-5{
+    padding: 2rem !important;
+  }
+  .header.col-12.border-bottom-0{
+    padding:0px !important;
+  }
   .container {
     padding-top: 30px; 
   }

@@ -256,7 +256,7 @@ async function getLang() {
 
 // Method for generating the days list
 function generateStructure(data) {
-  dom.days.innerHTML = Object.entries(data.daily).reduce((acc, el, i) => {
+  dom.days.innerHTML = `<ul>` + Object.entries(data.daily).reduce((acc, el, i) => {
     if (i < 5) {
       el = el[1];
       return (acc += `
@@ -273,7 +273,7 @@ function generateStructure(data) {
             </li>`);
     }
     return acc;
-  }, "");
+  }, "") + `</ul>`;
 }
 
 // Method for getting the first "li" element, parent of the element passed as paramenter
@@ -305,18 +305,10 @@ function generateTable(event, forecast) {
             
         </tbody>
     </table>`;
-  var today = timeConverter(forecast.list[0].dt).date - 1;
+  var today = timeConverter(forecast.list[0].dt).date;
   var flag = true;
-  dom.table.children[0].children[1].innerHTML =  forecast.list.reduce((acc, el) => {
-    if (el.dt_txt.substring(8, 10) === event.classList[2]) {
-      acc += generateT(el);
-    } else if (event.classList[2] == today && flag === true) {
-      acc += generateT(el);
-      flag = false;
-    }
-    console.log(event.classList[2]);
-     return acc;
-  }, "");
+  dom.table.querySelector('tbody').innerHTML = forecast.list.reduce((acc, el) => acc + (new Date(el.dt_txt).getDate() === today) ? generateT(el) : "", "");
+  
 
 
   function generateT(el) {
