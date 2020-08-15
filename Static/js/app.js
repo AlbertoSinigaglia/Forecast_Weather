@@ -306,7 +306,6 @@ function generateTable(event, forecast) {
         </tbody>
     </table>`;
   var today = timeConverter(forecast.list[0].dt).date;
-  var flag = true;
   dom.table.querySelector('tbody').innerHTML = forecast.list.reduce((acc, el) => acc + (new Date(el.dt_txt).getDate() === today) ? generateT(el) : "", "");
   
 
